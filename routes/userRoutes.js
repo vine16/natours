@@ -6,8 +6,12 @@ const router = express.Router();
 
 //no need to follow REST architecture
 router.post('/signup', authController.signup);
-
 router.post('/login', authController.login);
+
+//receives email
+router.post('/forgotPassword', authController.forgotPassword);
+//receives token + new password
+router.patch('/resetPassword/:token', authController.resetPassword);
 
 router
   .route('/')
